@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>向陶哲甫伉儷樂齡中心老友記問好</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', 'Microsoft JhengHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a2463 0%, #3e92cc 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* 多層次動畫背景 */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        /* 星空背景 */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        /* 漂浮幾何形狀 */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .shape {
+            position: absolute;
+            opacity: 0.3;
+            animation: floatAround 20s infinite linear;
+        }
+        
+        .shape.circle {
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.4);
+        }
+        
+        .shape.triangle {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            background: transparent;
+        }
+        
+        .shape.square {
+            background: rgba(155, 27, 48, 0.3);
+        }
+        
+        @keyframes floatAround {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-50px) translateX(50px) rotate(90deg);
+            }
+            50% {
+                transform: translateY(0) translateX(100px) rotate(180deg);
+            }
+            75% {
+                transform: translateY(50px) translateX(50px) rotate(270deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(360deg);
+            }
+        }
+        
+        /* 漂浮愛心 */
+        .floating-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.6);
+            font-size: 24px;
+            animation: floatHeart 15s infinite linear;
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* 標題區 */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .header h1 {
+            color: #9b1b30;
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, #9b1b30, #0056a6);
+            border-radius: 2px;
+        }
+        
+        .header h2 {
+            color: #0056a6;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .polyu-logo {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 100px;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .center-logo {
+            width: 120px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* 問候語部分 */
+        .greeting {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .greeting h3 {
+            color: #9b1b30;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .greeting h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #9b1b30, #0056a6);
+            border-radius: 2px;
+        }
+        
+        .greeting p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        /* 互動功能區 */
+        .interactive-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .interactive-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .interactive-card h3 {
+            color: #0056a6;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* 互動按鈕 */
+        .cta-button {
+            display: block;
+            width: 350px;
+            margin: 0 auto 50px;
+            padding: 22px 30px;
+            background: linear-gradient(90deg, #9b1b30, #ff6b6b, #9b1b30);
+            background-size: 200% 100%;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(155, 27, 48, 0.3);
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            animation: gradientMove 3s ease infinite;
+        }
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(155, 27, 48, 0.4);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header h2 {
+                font-size: 1.7rem;
+            }
+            
+            .students-section, .interactive-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .student-card, .interactive-card, .cta-button {
+                width: 90%;
+            }
+            
+            .polyu-logo {
+                width: 70px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+        
+        /* 自定義彈出窗口 */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            animation: modalAppear 0.5s ease;
+        }
+        
+        @keyframes modalAppear {
+            0% { transform: scale(0.7) translateY(-50px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #9b1b30;
+        }
+        
+        /* 音樂播放器 */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .music-btn {
+            background: #9b1b30;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .music-btn:hover {
+            background: #0056a6;
+            transform: scale(1.1);
+        }
+        
+        .music-title {
+            font-weight: bold;
+            color: #333;
+            max-width: 150px;
+        }
+        
+        /* 歌詞遊戲樣式 */
+        .lyrics-game {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .lyrics-game h3 {
+            color: #9b1b30;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .lyrics-game h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #9b1b30, #0056a6);
+            border-radius: 2px;
+        }
+        
+        .lyrics-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        
+        .lyrics-question {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #0056a6;
+            margin-bottom: 30px;
+            text-align: center;
+            min-height: 60px;
+        }
+        
+        .lyrics-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .lyric-option {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 100px;
+        }
+        
+        .lyric-option:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .small-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0056a6 0%, #3e92cc 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .small-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 86, 166, 0.3);
+        }
+        
+        /* 健康小貼士卡片 */
+        .tip-card {
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .hobby-tag {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        .hobby-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- 多層次動畫背景 -->
+    <div class="background-animation">
+        <div class="stars" id="stars-container"></div>
+        <div class="floating-shapes" id="shapes-container"></div>
+        <div class="floating-hearts" id="hearts-container"></div>
+    </div>
+    
+    <div class="container">
+        <!-- 標題區 -->
+        <header class="header animate__animated animate__fadeInDown">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.kRqSH0aHZet6NzwX8OOv8AAAAA?pid=Api&P=0&h=180" alt="香港理工大學" class="center-logo">
+            <h1>香港理工大學學生</h1>
+            <h2>向陶哲甫伉儷樂齡中心的長輩們問好！</h2>
+            <p>我們是來自香港理工大學的學生，非常榮幸有機會與中心的長輩們交流。我們希望通過這次活動，能夠與各位長輩們分享快樂時光，互相學習，建立美好的友誼。</p>
+        </header>
+        
+        <!-- 歌詞遊戲部分 -->
+        <section class="lyrics-game animate__animated animate__fadeInUp">
+            <h3><i class="fas fa-music"></i> 經典歌詞填空</h3>
+            <p>您還記得這些經典歌詞嗎？</p>
+            <div class="lyrics-card">
+                <div class="lyrics-question" id="lyrics-question">
+                    "月亮代表我的______"
+                </div>
+                <div class="lyrics-options">
+                    <button class="lyric-option" data-answer="心">心</button>
+                    <button class="lyric-option" data-answer="情">情</button>
+                    <button class="lyric-option" data-answer="意">意</button>
+                    <button class="lyric-option" data-answer="愛">愛</button>
+                </div>
+                <div id="lyrics-result" style="margin-top: 15px; min-height: 40px;"></div>
+                <button id="next-lyrics" class="small-btn" style="margin-top: 15px;">下一題</button>
+            </div>
+        </section>
+        
+       <!-- 健康小貼士 -->
+<div class="interactive-card animate__animated animate__fadeInRight" style="margin: 0 auto;"> 
+    <h3><i class="fas fa-heartbeat"></i> 健康小貼士</h3>
+    <p>為長輩們準備的健康建議</p>
+    
+    <div class="health-tips" style="margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+        <div class="tip-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); color: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; max-width: 300px;">
+            <div style="font-size: 2.5rem; margin-bottom: 10px; text-align: center;">
+                <i class="fas fa-walking"></i>
+            </div>
+            <h4 style="margin-bottom: 10px; text-align: center;">每日適量運動</h4>
+            <p style="font-size: 0.95rem; text-align: center;">建議每天散步30分鐘，可以促進血液循環，增強關節靈活性。太極拳也是非常適合長輩的溫和運動。</p>
+        </div>
+        
+        <div class="tip-card" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); color: white; padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; max-width: 300px;">
+            <div style="font-size: 2.5rem; margin-bottom: 10px; text-align: center;">
+                <i class="fas fa-apple-alt"></i>
+            </div>
+            <h4 style="margin-bottom: 10px; text-align: center;">均衡飲食營養</h4>
+            <p style="font-size: 0.95rem; text-align: center;">多吃蔬菜水果，適量攝取優質蛋白質。建議少食多餐，避免過油過鹹，保持充足水分攝取。</p>
+        </div>
+        
+        <div class="tip-card" style="background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%); color: #333; padding: 20px; border-radius: 15px; margin-bottom: 20px; text-align: left; max-width: 300px;">
+            <div style="font-size: 2.5rem; margin-bottom: 10px; text-align: center;">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h4 style="margin-bottom: 10px; text-align: center;">腦部健康訓練</h4>
+            <p style="font-size: 0.95rem; text-align: center;">定期閱讀、下棋、玩記憶遊戲，可以保持大腦活躍。與朋友聊天交流也是很好的認知訓練。</p>
+        </div>
+        
+        <div class="tip-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 15px; text-align: left; max-width: 300px;">
+            <div style="font-size: 2.5rem; margin-bottom: 10px; text-align: center;">
+                <i class="fas fa-smile"></i>
+            </div>
+            <h4 style="margin-bottom: 10px; text-align: center;">保持心情愉快</h4>
+            <p style="font-size: 0.95rem; text-align: center;">保持社交活動，與家人朋友保持聯繫。培養興趣愛好，享受生活每一個美好時刻。</p>
+        </div>
+    </div>
+    
+    <button id="next-tip" class="hobby-tag" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">
+        <i class="fas fa-random"></i> 隨機健康小貼士
+    </button>
+</div>
+        
+        <!-- 互動功能區 -->
+        <section class="interactive-section">
+            <div class="interactive-card animate__animated animate__fadeInUp">
+                <h3><i class="fas fa-gamepad"></i> 互動遊戲</h3>
+                <p>點擊下面的按鈕，與我們玩一個小遊戲！</p>
+                <button id="memory-game" class="hobby-tag" style="margin-top: 15px; font-size: 1.2rem; padding: 12px 25px;">
+                    <i class="fas fa-brain"></i> 記憶力挑戰
+                </button>
+                <div id="game-result" style="margin-top: 15px; font-weight: bold; color: #9b1b30; min-height: 30px;"></div>
+            </div>
+            
+            <div class="interactive-card animate__animated animate__fadeInUp">
+                <h3><i class="fas fa-gift"></i> 幸運抽獎</h3>
+                <p>點擊按鈕抽取專屬祝福！</p>
+                <button id="draw-lottery" class="hobby-tag" style="margin-top: 15px; font-size: 1.2rem; padding: 12px 25px; background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                    <i class="fas fa-gift"></i> 抽取幸運祝福
+                </button>
+                <div id="lottery-result" style="margin-top: 15px; font-size: 1.3rem; font-weight: bold; color: #9b1b30; min-height: 40px; padding: 10px; border-radius: 10px; background: rgba(155, 27, 48, 0.1);"></div>
+            </div>
+        </section>
+        
+        <!-- 問候語 -->
+        <section class="greeting animate__animated animate__fadeInUp">
+            <h3>致陶哲甫伉儷樂齡中心的長輩們</h3>
+            <p>親愛的長輩們：</p>
+            <p>非常感謝校方以及陶哲甫伉儷樂齡中心給予我們這次寶貴的機會，讓我們能夠與各位見面交流。</p>
+            <p>我們相信，長輩們豐富的人生經驗和智慧是社會最寶貴的財富。我們希望通過這次交流活動，不僅能夠為大家帶來歡樂和陪伴，更能夠從您們身上學習人生智慧，令我們更有信心走好人生路。</p>
+            <p>如果您有任何建議或特別想分享的話題，歡迎隨時告訴我們。我們期待與您們相見！</p>
+        </section>
+        
+        <!-- 互動按鈕 -->
+               
+        <!-- 底部 -->
+        <footer class="footer animate__animated animate__fadeInUp">
+            <!-- 底部已清空 -->
+        </footer>
+    </div>
+    
+    <!-- 自定義彈出窗口 -->
+    <div class="custom-modal" id="customModal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 id="modal-title">標題</h2>
+            <div id="modal-content">
+                內容將在這裡顯示
+            </div>
+        </div>
+    </div>
+    
+    <!-- 音樂播放器 -->
+    <div class="music-player">
+        <button id="play-music" class="music-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <button id="pause-music" class="music-btn">
+            <i class="fas fa-pause"></i>
+        </button>
+        <div class="music-title">歡樂時光</div>
+    </div>
+    
+    <!-- 背景音樂 -->
+    <audio id="background-music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-happy-day-583.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        // 創建星空背景
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                
+                container.appendChild(star);
+            }
+        }
+        
+        // 創建漂浮幾何形狀
+        function createShapes() {
+            const container = document.getElementById('shapes-container');
+            const shapeCount = 15;
+            const shapeTypes = ['circle', 'triangle', 'square'];
+            
+            for (let i = 0; i < shapeCount; i++) {
+                const shape = document.createElement('div');
+                const type = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+                shape.classList.add('shape', type);
+                
+                const size = Math.random() * 80 + 30;
+                
+                if (type === 'circle') {
+                    shape.style.width = `${size}px`;
+                    shape.style.height = `${size}px`;
+                    shape.style.background = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.2)`;
+                } else if (type === 'triangle') {
+                    shape.style.borderWidth = `0 ${size/2}px ${size}px ${size/2}px`;
+                    shape.style.borderColor = `transparent transparent rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.3) transparent`;
+                } else if (type === 'square') {
+                    shape.style.width = `${size}px`;
+                    shape.style.height = `${size}px`;
+                    shape.style.background = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.2)`;
+                }
+                
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                shape.style.animationDelay = `${Math.random() * 20}s`;
+                shape.style.animationDuration = `${Math.random() * 30 + 20}s`;
+                
+                container.appendChild(shape);
+            }
+        }
+        
+        // 創建漂浮愛心
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 20;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                const size = Math.random() * 30 + 20;
+                heart.style.fontSize = `${size}px`;
+                
+                heart.style.left = `${Math.random() * 100}%`;
+                
+                heart.style.animationDelay = `${Math.random() * 15}s`;
+                heart.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // 模態窗口控制
+        const modal = document.getElementById('customModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalContent = document.getElementById('modal-content');
+        
+        function openModal(title, content) {
+            modalTitle.textContent = title;
+            modalContent.innerHTML = content;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // 問候按鈕互動
+        document.getElementById('greeting-btn').addEventListener('click', function() {
+            const greetings = [
+                "各位長輩好！我們是香港理工大學的學生，很高興認識您們！",
+                "祝陶哲甫伉儷樂齡中心的長輩們身體健康，笑口常開！",
+                "我們期待與您們一起交流，共度愉快時光！",
+                "感謝您們的熱情歡迎，我們會盡力為大家帶來歡樂！",
+                "長輩們的智慧是我們的明燈，我們期待向您們學習！",
+            ];
+            
+            const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+            
+            openModal('向長輩們問好', `
+                <div style="font-size: 1.5rem; color: #9b1b30; margin-bottom: 20px;">
+                    ${randomGreeting}
+                </div>
+                <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: #f0f0f0; margin: 0 auto 10px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-user-circle" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div style="font-weight: bold;">香港理大學生</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 80px; height: 80px; border-radius: 50%; background: #f0f0f0; margin: 0 auto 10px; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+                            <i class="fas fa-user-circle" style="font-size: 3rem; color: #ccc;"></i>
+                        </div>
+                        <div style="font-weight: bold;">香港理大學生</div>
+                    </div>
+                </div>
+            `);
+            
+            const btn = this;
+            btn.innerHTML = '<i class="fas fa-smile"></i> 謝謝您！我們也很高興！';
+            btn.style.background = 'linear-gradient(90deg, #4CAF50, #2E7D32)';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-hand-peace"></i> 點擊向我們打招呼！';
+                btn.style.background = 'linear-gradient(90deg, #9b1b30, #ff6b6b, #9b1b30)';
+            }, 3000);
+        });
+        
+        // 經典歌詞遊戲數據
+        const lyricsQuestions = [
+            {
+                question: '"月亮代表我的______"',
+                options: ["心", "情", "意", "愛"],
+                correct: "心"
+            },
+            {
+                question: '"甜蜜蜜，你笑得______"',
+                options: ["甜蜜蜜", "真美麗", "好開心", "像花兒"],
+                correct: "甜蜜蜜"
+            },
+            {
+                question: '"小城故事多，充滿______"',
+                options: ["歡樂", "喜和樂", "人情味", "回憶"],
+                correct: "喜和樂"
+            },
+            {
+                question: '"往事只能______"',
+                options: ["回味", "回憶", "忘記", "想起"],
+                correct: "回味"
+            },
+            {
+                question: '"夜來香，我為你______"',
+                options: ["歌唱", "祝福", "思念", "陶醉"],
+                correct: "歌唱"
+            }
+        ];
+        
+        let currentLyricIndex = 0;
+        
+        function loadLyricsQuestion() {
+            const question = lyricsQuestions[currentLyricIndex];
+            const lyricsQuestion = document.getElementById('lyrics-question');
+            const lyricsOptions = document.querySelector('.lyrics-options');
+            const lyricsResult = document.getElementById('lyrics-result');
+            
+            lyricsQuestion.textContent = question.question;
+            
+            lyricsOptions.innerHTML = '';
+            question.options.forEach(option => {
+                const button = document.createElement('button');
+                button.className = 'lyric-option';
+                button.textContent = option;
+                button.setAttribute('data-answer', option);
+                lyricsOptions.appendChild(button);
+            });
+            
+            lyricsResult.innerHTML = '';
+            lyricsResult.style.color = '';
+            
+            document.querySelectorAll('.lyric-option').forEach(option => {
+                option.addEventListener('click', checkLyricAnswer);
+            });
+        }
+        
+        function checkLyricAnswer(e) {
+            const selected = e.target.getAttribute('data-answer');
+            const correct = lyricsQuestions[currentLyricIndex].correct;
+            const resultElement = document.getElementById('lyrics-result');
+            
+            document.querySelectorAll('.lyric-option').forEach(option => {
+                option.removeEventListener('click', checkLyricAnswer);
+                option.style.cursor = 'not-allowed';
+            });
+            
+            if (selected === correct) {
+                resultElement.innerHTML = `
+                    <div style="color: #4CAF50; font-weight: bold;">
+                        <i class="fas fa-check-circle"></i> 答對了！這句歌詞是：「${lyricsQuestions[currentLyricIndex].question.replace('______', correct)}」
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">您真厲害！還記得這首經典老歌！</p>
+                `;
+                
+                e.target.style.background = '#4CAF50';
+                e.target.style.color = 'white';
+            } else {
+                resultElement.innerHTML = `
+                    <div style="color: #f44336; font-weight: bold;">
+                        <i class="fas fa-times-circle"></i> 答錯了，正確答案是：「${correct}」
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">正確歌詞是：「${lyricsQuestions[currentLyricIndex].question.replace('______', correct)}」</p>
+                `;
+                
+                e.target.style.background = '#f44336';
+                e.target.style.color = 'white';
+                
+                document.querySelectorAll('.lyric-option').forEach(option => {
+                    if (option.getAttribute('data-answer') === correct) {
+                        option.style.background = '#4CAF50';
+                        option.style.color = 'white';
+                    }
+                });
+            }
+        }
+        
+        document.getElementById('next-lyrics').addEventListener('click', function() {
+            currentLyricIndex = (currentLyricIndex + 1) % lyricsQuestions.length;
+            loadLyricsQuestion();
+        });
+        
+        // 健康小貼士隨機顯示
+        const healthTips = [
+            {
+                icon: '<i class="fas fa-walking"></i>',
+                title: '每日適量運動',
+                content: '建議每天散步30分鐘，可以促進血液循環，增強關節靈活性。太極拳也是非常適合長輩的溫和運動。',
+                gradient: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',
+                color: 'white'
+            },
+            {
+                icon: '<i class="fas fa-apple-alt"></i>',
+                title: '均衡飲食營養',
+                content: '多吃蔬菜水果，適量攝取優質蛋白質。建議少食多餐，避免過油過鹹，保持充足水分攝取。',
+                gradient: 'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)',
+                color: 'white'
+            },
+            {
+                icon: '<i class="fas fa-brain"></i>',
+                title: '腦部健康訓練',
+                content: '定期閱讀、下棋、玩記憶遊戲，可以保持大腦活躍。與朋友聊天交流也是很好的認知訓練。',
+                gradient: 'linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%)',
+                color: '#333'
+            },
+            {
+                icon: '<i class="fas fa-smile"></i>',
+                title: '保持心情愉快',
+                content: '保持社交活動，與家人朋友保持聯繫。培養興趣愛好，享受生活每一個美好時刻。',
+                gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                color: 'white'
+            },
+            {
+                icon: '<i class="fas fa-bed"></i>',
+                title: '充足睡眠休息',
+                content: '每天保證7-8小時的睡眠，午間可小憩30分鐘。良好的睡眠有助於身體恢復和記憶鞏固。',
+                gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                color: 'white'
+            },
+            {
+                icon: '<i class="fas fa-users"></i>',
+                title: '保持社交活動',
+                content: '經常參加社區活動，與朋友聚會聊天。良好的社交關係有助於心理健康和認知功能。',
+                gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                color: 'white'
+            }
+        ];
+        
+        document.getElementById('next-tip').addEventListener('click', function() {
+            const randomTip = healthTips[Math.floor(Math.random() * healthTips.length)];
+            
+            openModal('健康小貼士', `
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">
+                        ${randomTip.icon}
+                    </div>
+                    <h3 style="color: #0056a6; margin-bottom: 20px;">${randomTip.title}</h3>
+                    <div style="padding: 20px; border-radius: 15px; margin: 20px 0; background: ${randomTip.gradient}; color: ${randomTip.color};">
+                        <p style="font-size: 1.3rem; line-height: 1.6;">${randomTip.content}</p>
+                    </div>
+                    <p style="color: #666; font-style: italic;">健康是最大的財富，祝您身體健康！</p>
+                </div>
+            `);
+        });
+        
+        // 記憶力挑戰遊戲
+        document.getElementById('memory-game').addEventListener('click', function() {
+            const colors = ['紅色', '藍色', '綠色', '黃色', '紫色'];
+            const randomColors = [];
+            
+            for (let i = 0; i < 4; i++) {
+                randomColors.push(colors[Math.floor(Math.random() * colors.length)]);
+            }
+            
+            const sequence = randomColors.join('、');
+            
+            openModal('記憶力挑戰', `
+                <div style="text-align: center;">
+                    <h3 style="color: #0056a6; margin-bottom: 20px;">記憶力挑戰遊戲</h3>
+                    <p>請記住下面的顏色序列：</p>
+                    <div style="font-size: 2rem; font-weight: bold; color: #9b1b30; margin: 20px 0; padding: 20px; background: #f9f9f9; border-radius: 10px;">
+                        ${sequence}
+                    </div>
+                    <p>您有10秒鐘時間記憶，然後我們會測試您的記憶力！</p>
+                    <div id="countdown" style="font-size: 3rem; font-weight: bold; color: #e91e63; margin: 20px 0;">10</div>
+                    <button id="start-test" style="background: #4CAF50; color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">
+                        開始測試
+                    </button>
+                </div>
+            `);
+            
+            let countdown = 10;
+            const countdownElement = document.getElementById('countdown');
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById('start-test').style.display = 'block';
+                }
+            }, 1000);
+            
+            document.addEventListener('click', function startTestHandler(e) {
+                if (e.target && e.target.id === 'start-test') {
+                    clearInterval(countdownInterval);
+                    
+                    modalContent.innerHTML = `
+                        <div style="text-align: center;">
+                            <h3 style="color: #0056a6; margin-bottom: 20px;">記憶力測試</h3>
+                            <p>請按順序點擊您記得的顏色：</p>
+                            <div style="display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap;">
+                                ${colors.map(color => `
+                                    <button class="color-btn" data-color="${color}" style="background: ${getColorHex(color)}; color: white; border: none; padding: 15px 25px; font-size: 1.2rem; border-radius: 10px; cursor: pointer; min-width: 100px;">
+                                        ${color}
+                                    </button>
+                                `).join('')}
+                            </div>
+                            <div id="user-sequence" style="margin: 20px 0; font-size: 1.5rem; min-height: 40px;"></div>
+                            <button id="submit-answer" style="background: #9b1b30; color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 50px; cursor: pointer; margin-top: 20px;">
+                                提交答案
+                            </button>
+                            <div id="game-result" style="margin-top: 20px; font-size: 1.5rem; font-weight: bold;"></div>
+                        </div>
+                    `;
+                    
+                    const userSequence = [];
+                    
+                    document.querySelectorAll('.color-btn').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const color = this.getAttribute('data-color');
+                            userSequence.push(color);
+                            document.getElementById('user-sequence').textContent = userSequence.join('、');
+                        });
+                    });
+                    
+                    document.getElementById('submit-answer').addEventListener('click', function() {
+                        let correctCount = 0;
+                        for (let i = 0; i < Math.min(userSequence.length, randomColors.length); i++) {
+                            if (userSequence[i] === randomColors[i]) {
+                                correctCount++;
+                            }
+                        }
+                        
+                        const resultElement = document.getElementById('game-result');
+                        if (correctCount === randomColors.length && userSequence.length === randomColors.length) {
+                            resultElement.innerHTML = `<span style="color: #4CAF50;">太棒了！您答對了所有 ${correctCount} 個顏色！</span>`;
+                        } else {
+                            resultElement.innerHTML = `<span style="color: #9b1b30;">您答對了 ${correctCount} 個顏色。正確順序是：${randomColors.join('、')}</span>`;
+                        }
+                        
+                        setTimeout(() => {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                            document.getElementById('game-result').innerHTML = `遊戲結束！您答對了 ${correctCount} 個顏色。`;
+                        }, 3000);
+                    });
+                    
+                    document.removeEventListener('click', startTestHandler);
+                }
+            });
+        });
+        
+        function getColorHex(colorName) {
+            const colorMap = {
+                '紅色': '#f44336',
+                '藍色': '#2196F3',
+                '綠色': '#4CAF50',
+                '黃色': '#FFEB3B',
+                '紫色': '#9C27B0'
+            };
+            return colorMap[colorName] || '#777';
+        }
+        
+        // 抽獎功能
+        document.getElementById('draw-lottery').addEventListener('click', function() {
+            const blessings = [
+                "祝您身體健康，笑口常開！",
+                "祝您福如東海，壽比南山！",
+                "祝您天天快樂，心想事成！",
+                "祝您家庭幸福，子孫滿堂！",
+                "祝您精神飽滿，活力無限！",
+                "祝您平安喜樂，萬事如意！",
+                "祝您健康長壽，幸福美滿！",
+                "祝您心想事成，好運連連！"
+            ];
+            
+            const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
+            const resultElement = document.getElementById('lottery-result');
+            
+            let count = 0;
+            const interval = setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * blessings.length);
+                resultElement.textContent = blessings[randomIndex];
+                count++;
+                
+                if (count > 15) {
+                    clearInterval(interval);
+                    resultElement.textContent = randomBlessing;
+                    resultElement.style.color = '#e91e63';
+                    resultElement.style.fontSize = '1.5rem';
+                    
+                    setTimeout(() => {
+                        openModal('幸運祝福', `
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; color: #e91e63; margin-bottom: 20px;">
+                                    ❤
+                                </div>
+                                <div style="font-size: 1.8rem; margin-bottom: 20px;">
+                                    ${randomBlessing}
+                                </div>
+                                <div style="font-size: 1.2rem; color: #666;">
+                                    來自理大學生的誠摯祝福
+                                </div>
+                            </div>
+                        `);
+                    }, 500);
+                }
+            }, 100);
+        });
+        
+        // 音樂播放控制
+        const backgroundMusic = document.getElementById('background-music');
+        const playBtn = document.getElementById('play-music');
+        const pauseBtn = document.getElementById('pause-music');
+        
+        playBtn.addEventListener('click', () => {
+            backgroundMusic.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'flex';
+        });
+        
+        pauseBtn.addEventListener('click', () => {
+            backgroundMusic.pause();
+            playBtn.style.display = 'flex';
+            pauseBtn.style.display = 'none';
+        });
+        
+        pauseBtn.style.display = 'none';
+        
+        // 頁面載入時初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createShapes();
+            createHearts();
+            
+            const elements = document.querySelectorAll('.header, .lyrics-game, .interactive-card, .greeting, .cta-button, .footer');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'opacity 1s ease, transform 1s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+            
+            setTimeout(() => {
+                openModal('歡迎！', `
+                    <div style="text-align: center;">
+                        <div style="font-size: 4rem; color: #9b1b30; margin-bottom: 20px;">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h2 style="color: #0056a6; margin-bottom: 20px;">歡迎來到我們的介紹頁面！</h2>
+                        <p style="font-size: 1.3rem; line-height: 1.6;">
+                            我們是香港理工大學的學生。<br>
+                            非常高興有機會向陶哲甫伉儷樂齡中心的長輩們自我介紹。
+                        </p>
+                        <p style="margin-top: 20px; color: #666;">
+                            希望您喜歡我們的互動遊戲和健康小貼士！
+                        </p>
+                    </div>
+                `);
+            }, 3000);
+            
+            loadLyricsQuestion();
+        });
+    </script>
+</body>
+</html>
